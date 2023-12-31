@@ -22,7 +22,7 @@ def displayText(text):
     return 'C ' + text
 
 
-@app.route("/python/", strict_slashes=False, defaults={"text":"is cool"})
+@app.route("/python/", strict_slashes=False, defaults={"text": "is cool"})
 @app.route("/python/<text>", strict_slashes=False)
 def displayPython(text):
     text = text.replace('_', ' ')
