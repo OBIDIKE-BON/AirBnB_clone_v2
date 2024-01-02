@@ -2,7 +2,7 @@
 """
 a script that starts a Flask web application
 """
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)
 
 
@@ -27,6 +27,16 @@ def displayText(text):
 def displayPython(text):
     text = text.replace('_', ' ')
     return 'Python ' + text
+
+
+@app.route("/number/<int:n>", strict_slashes=False)
+def displayN(n):
+    return f"{n} is a number"
+
+
+@app.route("/number_template/<int:n>", strict_slashes=False)
+def displayNTemplate(n):
+    return render_template('5-number.html', num=n)
 
 
 host = '0.0.0.0'
